@@ -11,13 +11,35 @@ const ContactPage = () => {
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulation of form submission
-        setTimeout(() => {
-            setIsSubmitted(true);
-            setFormState({ name: '', email: '', subject: '', message: '' });
-        }, 1000);
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/nj@millywilly.co.kr", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formState.name,
+                    email: formState.email,
+                    subject: formState.subject,
+                    message: formState.message,
+                    _subject: `[MillyWilly 문의] ${formState.subject}` // Custom email subject
+                })
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                setFormState({ name: '', email: '', subject: '', message: '' });
+            } else {
+                alert('전송에 실패했습니다. 잠시 후 다시 시도해주세요.');
+            }
+        } catch (error) {
+            console.error('Error sending form:', error);
+            alert('오류가 발생했습니다. 이메일이나 전화로 문의 부탁드립니다.');
+        }
     };
 
     const handleChange = (e) => {
