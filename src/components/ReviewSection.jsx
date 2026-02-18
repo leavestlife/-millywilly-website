@@ -40,7 +40,7 @@ const ReviewCard = ({ review }) => (
     >
         <div className="flex gap-1 mb-4">
             {[...Array(review.rating)].map((_, i) => (
-                <Star key={i} size={16} className="fill-accent-gold text-accent-gold" />
+                <Star key={i} size={16} fill="#FAE100" stroke="#FAE100" />
             ))}
         </div>
         <p className="text-gray-600 mb-6 leading-relaxed relative z-10">

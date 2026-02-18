@@ -8,8 +8,7 @@ const HomeProductTeaser = () => {
         <section className="py-24 bg-brand-bg relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <span className="text-accent-gold font-bold tracking-widest uppercase mb-2 block">Best Seller</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-brand-dark">가장 사랑받는 밀리윌리</h2>
+                    <span className="text-accent-gold font-black tracking-widest uppercase mb-2 block text-6xl md:text-9xl drop-shadow-sm opacity-90">BEST SELLER</span>
                 </div>
 
                 <div className="relative bg-[#2F3E35] rounded-[3rem] overflow-hidden p-8 md:p-16 shadow-2xl">
